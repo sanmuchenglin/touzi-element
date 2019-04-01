@@ -11,8 +11,8 @@ const Header = () => {
         <img className={style['logo']} src={Titleimg} alt="" />
         <span>xxx金融后台管理系统</span>
       </div> 
-      <MsgList />
       <UserInfo />
+      <MsgList />
     </header>
   )
 }
