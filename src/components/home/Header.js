@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className={style['head-nav']}>
       <div className={style['head-title']}>
-        <img className={style['logo']} src={Titleimg} />
+        <img className={style['logo']} src={Titleimg} alt="" />
         <span>xxx金融后台管理系统</span>
       </div> 
       <MsgList />
