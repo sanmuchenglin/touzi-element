@@ -15,8 +15,4 @@ const Home = ({dispatch, homes}) => {
   )
 }
 
-function mapStateToProps(state) {
-  return {homes: state.home}
-}
-// export default Products;
 export default connect((({ home }) => ({home})))(Home)
