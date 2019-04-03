@@ -2,5 +2,7 @@
 
 # 项目运行
 ```
-git clone
+git clone https://github.com/sanmuchenglin/touzi-element.git
+npm install
+npm start
 ```
