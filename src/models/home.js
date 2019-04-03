@@ -8,7 +8,8 @@ export default {
       bars: 10,
       mails: 23,
       notis: 100
-    }
+    },
+    collapsed: false
   },
 
   subscriptions: {
@@ -26,6 +27,13 @@ export default {
     save(state, action) {
       return { ...state, ...action.payload };
     },
+    //菜单栏伸缩
+    collapse(state, action) {
+      return {
+        ...state,
+        collapsed: !state.collapsed
+      };
+    }
   },
 
 };
