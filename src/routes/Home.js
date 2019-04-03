@@ -3,7 +3,7 @@ import { connect } from 'dva'
 import Header from '../components/home/Header'
 import style from './style/home.less'
 
-const Home = ({dispatch, products}) => {
+const Home = ({dispatch, homes}) => {
   return (
     <div className={style.name}>
       <Header></Header>
@@ -14,7 +14,9 @@ const Home = ({dispatch, products}) => {
     </div>
   )
 }
+
+function mapStateToProps(state) {
+  return {homes: state.home}
+}
 // export default Products;
-export default connect(({ products }) => ({
-  products,
-}))(Home);
+export default connect((({ home }) => ({home})))(Home)
