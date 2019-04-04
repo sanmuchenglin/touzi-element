@@ -1,6 +1,6 @@
 /**
- * throttle for do fun 
- * @param {*} func  a functon for throttle
+ * throttle for do fun (delay execution method)
+ * @param {*} func  Execution method
  * @param {*} delay  delay time
  */
 export const delay = (func, delay=200) => {
