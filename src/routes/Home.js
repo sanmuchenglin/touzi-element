@@ -12,7 +12,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      ch: 900
+      ch: window.innerHeight -70
     }
   }
   componentDidMount() {
