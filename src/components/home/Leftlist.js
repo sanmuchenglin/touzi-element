@@ -1,11 +1,9 @@
 import React, { Component} from 'react'
 import { connect } from 'dva'
-import { Menu, Icon, Button } from 'antd'
+import { Menu, Icon } from 'antd'
 
 @connect(
-  state => ({
-    collapsed: state.home.collapsed
-  })
+  ({home}) => ({home})
 )
 class Leftlist extends Component {
   toggleCollapsed = () => {
@@ -14,18 +12,17 @@ class Leftlist extends Component {
     })
   }
   render() {
+    const {collapsed, height} = this.props.home;
     const SubMenu = Menu.SubMenu;
     return (
-      <div style={{ width: 190 }}>
-        <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          <Icon type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} />
-        </Button> 
+      <div style={{ width: collapsed? 80:190 }}>
         <Menu
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"
           theme="light"
-          inlineCollapsed= {this.props.collapsed}
+          style={{'height': height}}
+          inlineCollapsed= {collapsed}
         >
           <Menu.Item key="1">
             <Icon type="pie-chart" />

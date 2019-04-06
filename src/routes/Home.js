@@ -3,23 +3,25 @@ import { connect } from 'dva'
 import { delay } from '../utils/commonutils'
 import Header from '../components/home/Header'
 import LeftList from '../components/home/Leftlist'
+import HomeContent from '../components/home/HomeContent'
 import style from './style/home.less'
 
 @connect(({ home }) => (
   {home}
 ))
 class Home extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      ch: window.innerHeight -70
-    }
+
+  heightChange = () => {
+    this.props.dispatch({
+      type: "home/adapt",
+      payload: window.innerHeight -70
+    })
   }
+
   componentDidMount() {
+    this.heightChange();
     window.onresize = delay(() => {
-      this.setState({
-        ch: window.innerHeight - 70
-      })
+      this.heightChange();
     }, 200)
   }
 
@@ -27,9 +29,9 @@ class Home extends Component {
     return (
       <div className={style.name}>
         <Header></Header>
-        <div className={style['body-content']} style={{height: this.state.ch}}>
+        <div className={style['body-content']} style={{height: this.props.height}}>
           <LeftList className={style['list-left']}></LeftList>
-          <div className={style['list-content']}>content</div>
+          <HomeContent className={style['list-content']}></HomeContent>
         </div>
       </div>
     )

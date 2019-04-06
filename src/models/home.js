@@ -9,7 +9,8 @@ export default {
       mails: 23,
       notis: 100
     },
-    collapsed: false
+    collapsed: false,
+    height: 600    
   },
 
   subscriptions: {
@@ -26,6 +27,16 @@ export default {
   reducers: {
     save(state, action) {
       return { ...state, ...action.payload };
+    },
+    adapt(state, action) {
+      console.log({
+        ...state, 
+        height: action.payload
+      })
+      return {
+        ...state, 
+        height: action.payload
+      }
     },
     //菜单栏伸缩
     collapse(state, action) {
