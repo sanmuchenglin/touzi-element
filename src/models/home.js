@@ -10,6 +10,7 @@ export default {
       mails: 23,
       notis: 100
     },
+    menus: [],
     collapsed: false,
     height: 600    
   },
@@ -26,7 +27,7 @@ export default {
 
     *getMenuList({payload}, {call, put }) {
       const data = yield call(getMenuList, payload)
-      console.log(data)
+      yield put({type: 'addList', menus: data.data.menu.menu})
     }
   },
 
@@ -46,6 +47,12 @@ export default {
         ...state,
         collapsed: !state.collapsed
       };
+    },
+    addList(state, {menus}) {
+      return {
+        ...state,
+        menus
+      }
     }
   },
 
