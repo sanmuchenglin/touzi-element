@@ -1,7 +1,7 @@
-const Mock = require('mockjs')
+const db = require('./menu')
 
 module.exports = {
-  ['GET /api/menu'](req, res) {
-    res.status(200).json({a:1, b:2})
+  'POST /api/menus'(req, res) {
+    res.status(200).json(db)
   }
 }

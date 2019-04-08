@@ -1,15 +1,15 @@
 import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
-//import IndexPage from './routes/IndexPage';
-import Home from './routes/Home';
-import Products from './routes/Products'
+import dynamic from 'dva/dynamic';
 
-function RouterConfig({ history }) {
+function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/products"  component={Products} />
+        <Route path="/" exact 
+          component={dynamic({app, models:() => [import('./models/home')], component:() => import('./routes/Home')})} />
+        <Route path="/products" exact 
+          component={dynamic({app, models:() => [import('./models/products')], component:() => import('./routes/Products')})} />
       </Switch>
     </Router>
   );

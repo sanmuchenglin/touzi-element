@@ -1,3 +1,4 @@
+import { getMenuList } from '../services/home'
 
 export default {
 
@@ -22,6 +23,11 @@ export default {
     *fetch({ payload }, { call, put }) {  // eslint-disable-line
       yield put({ type: 'save' });
     },
+
+    *getMenuList({payload}, {call, put }) {
+      const data = yield call(getMenuList, payload)
+      console.log(data)
+    }
   },
 
   reducers: {

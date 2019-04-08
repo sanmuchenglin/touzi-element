@@ -11,6 +11,18 @@ class Leftlist extends Component {
       type: 'home/collapse'
     })
   }
+
+  getMenuList = () => {
+    this.props.dispatch({
+      type: 'home/getMenuList',
+      payload: {user: "wang"}
+    })
+  }
+
+  componentDidMount() {
+    this.getMenuList();
+  }
+
   render() {
     const {collapsed, height} = this.props.home;
     const SubMenu = Menu.SubMenu;

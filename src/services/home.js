@@ -1,5 +1,8 @@
 import request from '../utils/request';
 
-export function queryMenu(options) {
-  return request('/api/menus', options);
+export function getMenuList(param) {
+  return request('/api/menus', {
+    body: JSON.stringify(param),
+    method: 'POST'
+  });
 }

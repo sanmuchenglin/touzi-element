@@ -1,7 +1,7 @@
-{
+export const menu = {
   "menu": [
     {
-      "index": 1,
+      "index": "1",
       "name": "首页",
       "type": "appstore"
     },
