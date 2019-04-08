@@ -10,7 +10,7 @@ const MsgList = ({dispatch, message}) => {
         <a href='#/index'>
           <div>
             <Icon type="bars" className={style['msg-i']} />
-            <sup>{message.bars}</sup>
+            <sup className={style['sup-brs']}>{message.bars}</sup>
           </div>
         </a>
       </li>
@@ -18,7 +18,7 @@ const MsgList = ({dispatch, message}) => {
         <a href='#/index'>
           <div>
             <Icon type="mail" className={style['msg-i']} />
-            <sup>{message.mails}</sup>
+            <sup className={style['sup-mail']}>{message.mails}</sup>
           </div>
         </a>
       </li>
@@ -26,7 +26,7 @@ const MsgList = ({dispatch, message}) => {
         <a href='#/index'>
           <div>
             <Icon type="notification" className={style['msg-i']} />
-            <sup>{message.notis}</sup>
+            <sup className={style['sup-noti']}>{message.notis}</sup>
           </div>
         </a>
       </li>

@@ -20,7 +20,7 @@ class Leftlist extends Component {
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"
-          theme="light"
+          theme="dark"
           style={{'height': height}}
           inlineCollapsed= {collapsed}
         >

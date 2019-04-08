@@ -29,10 +29,6 @@ export default {
       return { ...state, ...action.payload };
     },
     adapt(state, action) {
-      console.log({
-        ...state, 
-        height: action.payload
-      })
       return {
         ...state, 
         height: action.payload
