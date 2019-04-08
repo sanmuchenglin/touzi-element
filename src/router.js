@@ -10,6 +10,8 @@ function RouterConfig({ history, app }) {
           component={dynamic({app, models:() => [import('./models/home')], component:() => import('./routes/Home')})} />
         <Route path="/products" exact 
           component={dynamic({app, models:() => [import('./models/products')], component:() => import('./routes/Products')})} />
+        <Route path="/bre" exact 
+          component={dynamic({app, component:() => import('./routes/Bread')})} />
       </Switch>
     </Router>
   );
