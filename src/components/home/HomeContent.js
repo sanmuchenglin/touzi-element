@@ -15,6 +15,7 @@ class HomeContent extends Component {
     })
   }
   render() {
+    const { children, location } = this.props
     return (
       <div className={style['home-content']}>
         <div className={style['bread-crumb']}>
@@ -23,7 +24,7 @@ class HomeContent extends Component {
           </span>
         </div>
         <div>
-          1234
+          {children}
         </div>
       </div>
     )
