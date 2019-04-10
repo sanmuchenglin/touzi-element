@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {Icon} from 'antd'
+import {Icon, Layout, Breadcrumb} from 'antd'
 import { connect } from 'dva'
+import LeftList from './Leftlist'
 import style from './home.less'
 
 @connect(
@@ -17,15 +18,21 @@ class HomeContent extends Component {
   render() {
     const { children, location } = this.props
     return (
-      <div className={style['home-content']}>
-        <div className={style['bread-crumb']}>
+      <div>
+        <LeftList></LeftList>
+        <Layout>
           <span onClick={this.toggleCollapsed} className={style['bar']}>
             <Icon type={this.props.collapsed? "menu-unfold":"menu-fold"} style={{fontSize: 18}}/>
           </span>
-        </div>
-        <div>
-          {children}
-        </div>
+          <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>
+          <div>
+            children
+          </div>
+          </Layout>
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { connect } from 'dva'
-import { Menu, Icon } from 'antd'
-import { Link, routerRedux } from 'dva/router'
+import { Layout, Menu, Breadcrumb, Icon, } from 'antd'
+import { Link } from 'dva/router'
 
 @connect(
   ({home}) => ({home})
@@ -26,11 +26,11 @@ class Leftlist extends Component {
 
   render() {
     const {collapsed, height, menus} = this.props.home;
-    const SubMenu = Menu.SubMenu;
+    const { SubMenu } = Menu;
+    const { Header, Content, Sider } = Layout;
     return (
-      <div style={{ width: collapsed? 80:190 }}>
+      <Sider>
         <Menu
-          selectedKeys={[this.props.location.pathname]}
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"
@@ -58,11 +58,12 @@ class Leftlist extends Component {
         })}
                 <Menu.Item key="/products">
                     <Link to="/products">
-                        <Icon type="home" />Home
+                        <Icon type="home" />
+                        Home
                     </Link>
                 </Menu.Item>
         </Menu>
-      </div>
+      </Sider>
     )
   }
   

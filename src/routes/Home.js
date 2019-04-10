@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'dva'
 import { withRouter } from 'dva/router'
+import { Layout, Menu, Breadcrumb, Icon } from 'antd'
 import { delay } from '../utils/commonutils'
 import Header from '../components/home/Header'
 import LeftList from '../components/home/Leftlist'
@@ -26,16 +27,12 @@ class Home extends Component {
   render() {
     const { children, location } = this.props
     return (
-      <div className={style.name}>
+      <Layout>
         <Header></Header>
-        <div className={style['body-content']} style={{height: this.props.height}}>
-          <LeftList location={location} className={style['list-left']}></LeftList>
-          <HomeContent 
-            className={style['list-content']}>
+        <HomeContent>
             {children}
-          </HomeContent>
-        </div>
-      </div>
+        </HomeContent>
+      </Layout>
     )
   }
 }

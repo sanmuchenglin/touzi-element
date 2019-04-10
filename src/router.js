@@ -1,17 +1,19 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
+import { Router, Route, Switch, routerRedux } from 'dva/router';
 import dynamic from 'dva/dynamic';
+
+const { ConnectedRouter } = routerRedux
 
 function RouterConfig({ history, app }) {
   return (
-    <Router history={history}>
+    <ConnectedRouter history={history}>
       <Switch>
         <Route path="/" exact 
           component={dynamic({app, models:() => [import('./models/home')], component:() => import('./routes/Home')})} />
         <Route path="/products" exact 
           component={dynamic({app, models:() => [import('./models/products')], component:() => import('./routes/Products')})} />
       </Switch>
-    </Router>
+    </ConnectedRouter>
   );
 }
 
