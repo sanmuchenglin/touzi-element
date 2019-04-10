@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'dva'
 import { withRouter } from 'dva/router'
-import { Layout, Menu, Breadcrumb, Icon } from 'antd'
+import { Layout} from 'antd'
 import { delay } from '../utils/commonutils'
 import Header from '../components/home/Header'
-import LeftList from '../components/home/Leftlist'
 import HomeContent from '../components/home/HomeContent'
-import style from './style/home.less'
 
 class Home extends Component {
 
@@ -29,7 +27,7 @@ class Home extends Component {
     return (
       <Layout>
         <Header></Header>
-        <HomeContent>
+        <HomeContent location={location}>
             {children}
         </HomeContent>
       </Layout>

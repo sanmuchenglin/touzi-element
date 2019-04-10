@@ -18,22 +18,22 @@ class HomeContent extends Component {
   render() {
     const { children, location } = this.props
     return (
-      <div>
-        <LeftList></LeftList>
-        <Layout>
-          <span onClick={this.toggleCollapsed} className={style['bar']}>
-            <Icon type={this.props.collapsed? "menu-unfold":"menu-fold"} style={{fontSize: 18}}/>
-          </span>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <div>
-            children
-          </div>
+      <Layout>
+          <LeftList></LeftList>
+          <Layout>  
+            <Breadcrumb style={{background: '#dde6f1'}}>
+              <span onClick={this.toggleCollapsed} className={style['trigger']}>
+                <Icon type={this.props.collapsed? "menu-unfold":"menu-fold"} style={{fontSize: 18}}/>
+              </span>
+              <Breadcrumb.Item style={{ lineHeight: '30px' }}>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <div>
+              {children}
+            </div>
           </Layout>
-      </div>
+      </Layout>
     )
   }
 }

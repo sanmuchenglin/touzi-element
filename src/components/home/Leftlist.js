@@ -26,17 +26,19 @@ class Leftlist extends Component {
 
   render() {
     const {collapsed, height, menus} = this.props.home;
+    console.log(collapsed)
     const { SubMenu } = Menu;
     const { Header, Content, Sider } = Layout;
     return (
-      <Sider>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+      >
         <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
           mode="inline"
           theme="dark"
           style={{'height': height}}
-          inlineCollapsed= {collapsed}
         >
         {menus.map(menu => {
           if(menu.item && menu.item.length > 0) {
