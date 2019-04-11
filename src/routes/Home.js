@@ -7,7 +7,6 @@ import Header from '../components/home/Header'
 import HomeContent from '../components/home/HomeContent'
 
 class Home extends Component {
-
   heightChange = () => {
     this.props.dispatch({
       type: "home/adapt",
