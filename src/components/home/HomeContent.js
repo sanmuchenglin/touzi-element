@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Icon, Layout, Breadcrumb} from 'antd'
+import {Icon, Layout} from 'antd'
 import { connect } from 'dva'
 import LeftList from './Leftlist'
 import BreadCread from './BreadCread'
@@ -18,7 +18,6 @@ class HomeContent extends Component {
   }
   render() {
     const { location, children } = this.props
-    console.log(location)
     return (
       <Layout>
           <LeftList></LeftList>
