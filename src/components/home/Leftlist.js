@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { connect } from 'dva'
-import { Layout, Menu, Breadcrumb, Icon, } from 'antd'
+import { Layout, Menu, Icon, } from 'antd'
 import { Link } from 'dva/router'
 
 @connect(
@@ -26,9 +26,8 @@ class Leftlist extends Component {
 
   render() {
     const {collapsed, height, menus} = this.props.home;
-    console.log(collapsed)
     const { SubMenu } = Menu;
-    const { Header, Content, Sider } = Layout;
+    const { Sider } = Layout;
     return (
       <Sider
         trigger={null}
@@ -61,7 +60,13 @@ class Leftlist extends Component {
                 <Menu.Item key="/products">
                     <Link to="/products">
                         <Icon type="home" />
-                        Home
+                        <span>Pro</span>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="/indexPage">
+                    <Link to="/indexPage">
+                        <Icon type="solution" />
+                        <span>Index</span>
                     </Link>
                 </Menu.Item>
         </Menu>

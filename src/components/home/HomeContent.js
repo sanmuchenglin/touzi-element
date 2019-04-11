@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Icon, Layout, Breadcrumb} from 'antd'
 import { connect } from 'dva'
 import LeftList from './Leftlist'
+import BreadCread from './BreadCread'
 import style from './home.less'
 
 @connect(
@@ -16,22 +17,20 @@ class HomeContent extends Component {
     })
   }
   render() {
-    const { children, location } = this.props
+    const { location, children } = this.props
+    console.log(location)
     return (
       <Layout>
           <LeftList></LeftList>
-          <Layout>  
-            <Breadcrumb style={{background: '#dde6f1'}}>
+          <Layout>
+            <BreadCread pathName={location.pathname}>
               <span onClick={this.toggleCollapsed} className={style['trigger']}>
                 <Icon type={this.props.collapsed? "menu-unfold":"menu-fold"} style={{fontSize: 18}}/>
               </span>
-              <Breadcrumb.Item style={{ lineHeight: '30px' }}>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div>
+            </BreadCread>
+            <Layout> 
               {children}
-            </div>
+            </Layout> 
           </Layout>
       </Layout>
     )
