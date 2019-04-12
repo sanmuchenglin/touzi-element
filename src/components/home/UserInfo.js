@@ -3,7 +3,7 @@ import { Menu, Dropdown, Icon} from 'antd'
 import style from './home.less'
 import UserImage from '../../assets/avatar.png'
 
-const UserInfor = () => {
+const UserInfor = ({doLogout}) => {
   const menu = (
     <Menu onClick="">
       <Menu.Item key="1"><Icon type="user" />1st menu item</Menu.Item>
@@ -22,7 +22,7 @@ const UserInfor = () => {
       <Dropdown overlay={menu} className={style["opermenu"]} >
         <Icon type="caret-down" />
       </Dropdown>
-      <Icon type="logout" />
+      <Icon onClick={doLogout} type="logout" />
     </div>
   )
 }

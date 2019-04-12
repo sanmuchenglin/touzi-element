@@ -7,6 +7,7 @@ import Header from '../components/home/Header'
 import HomeContent from '../components/home/HomeContent'
 
 class Home extends Component {
+  //高度修改后页面样式自适应
   heightChange = () => {
     this.props.dispatch({
       type: "home/adapt",
@@ -14,6 +15,7 @@ class Home extends Component {
     })
   }
 
+  //生命周期钩子组件加载完成后
   componentDidMount() {
     this.heightChange();
     window.onresize = delay(() => {
@@ -21,12 +23,19 @@ class Home extends Component {
     }, 200)
   }
 
+  //退出登录
+  doLogout = () => {
+    this.props.dispatch({
+      type: 'login/doLogout',
+      payload: {user: "wang"}
+    })
+  }
+
   render() {
     const { location, navData } = this.props
-    console.log(this.props)
     return (
       <Layout>
-        <Header></Header>
+        <Header doLogout={this.doLogout}></Header>
         <HomeContent location={location}>
             <Switch>
                 {
@@ -41,4 +50,4 @@ class Home extends Component {
   }
 }
 
-export default withRouter(connect(({home}) => ({home}))(Home));
+export default withRouter(connect(({home, login}) => ({home, login}))(Home));

@@ -1,5 +1,4 @@
 import { getMenuList } from '../services/home'
-import { routerRedux } from 'dva/router';
 
 export default {
 
@@ -44,7 +43,6 @@ export default {
     },
     //菜单栏伸缩
     collapse(state, action) {
-      routerRedux.push("/products")
       return {
         ...state,
         collapsed: !state.collapsed
