@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'dva'
-import { withRouter } from 'dva/router'
+import {  Route, Switch, withRouter } from 'dva/router'
 import { Layout} from 'antd'
 import { delay } from '../utils/commonutils'
 import Header from '../components/home/Header'
@@ -22,12 +22,19 @@ class Home extends Component {
   }
 
   render() {
-    const { children, location } = this.props
+    const { location, navData } = this.props
+    console.log(this.props)
     return (
       <Layout>
         <Header></Header>
         <HomeContent location={location}>
-            {children}
+            <Switch>
+                {
+                    navData.map(item => (
+                        <Route path={item.path} key={item.path} exact component={item.component}></Route>  
+                    ))
+                }
+            </Switch>
         </HomeContent>
       </Layout>
     )
