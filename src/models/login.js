@@ -1,12 +1,28 @@
 import { doLogin, doLogout } from '../services/login'
 import {routerRedux} from 'dva/router';
 import { setCookie, removeCookie } from '../utils/cookieutils'
+import { UserName, TelPhone } from '../components/login'
 
 export default {
 
   namespace: 'login',
 
-  state: {},
+  state: {
+    defaultKey: '2',
+    tabs: [
+      {key: '1',
+       tabName: '账户密码登录' ,
+       forms: ['userName', 'password'],
+       Component: UserName
+      },
+      {
+        key: '2',
+        tabName: '手机号登录',
+        forms: ['telphone', 'vercode'],
+        Component: TelPhone
+      }
+    ]
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
