@@ -33,42 +33,39 @@ class Leftlist extends Component {
         trigger={null}
         collapsible
         collapsed={collapsed}
+        width="160"
+        style={{overflow: 'auto'}}
       >
         <Menu
           mode="inline"
           theme="dark"
           style={{'height': height}}
         >
-        {menus.map(menu => {
-          if(menu.item && menu.item.length > 0) {
-            return (
-              <SubMenu key={menu.index} title={<span><Icon type={menu.type} /><span>{menu.name}</span></span>}>
-                {menu.item.map(it => {
-                  return (<Menu.Item key={it.index}>{it.name}</Menu.Item>)
-                })}
-              </SubMenu>
-            )
-          } else {
-            return (
-              <Menu.Item key={menu.index}>
-                <Icon type={menu.type} />
-                <span>{menu.name}</span>
-              </Menu.Item>
-            )
-          }
-        })}
-                <Menu.Item key="/products">
-                    <Link to="/products">
-                        <Icon type="home" />
-                        <span>Pro</span>
-                    </Link>
+          {menus.map(menu => {
+            if(menu.item && menu.item.length > 0) {
+              return (
+                <SubMenu key={menu.index} title={<span><Icon type={menu.type} /><span>{menu.name}</span></span>}>
+                  {menu.item.map(it => {
+                    return (
+                    <Menu.Item key={it.index}>
+                      <Link to={it.link? it.link:'/'}>
+                        {it.name}
+                      </Link>
+                    </Menu.Item>)
+                  })}
+                </SubMenu>
+              )
+            } else {
+              return (
+                <Menu.Item key={menu.index}>
+                  <Link to={menu.link? menu.link:'/'}>
+                    <Icon type={menu.type} />
+                    <span>{menu.name}</span>
+                  </Link>
                 </Menu.Item>
-                <Menu.Item key="/indexPage">
-                    <Link to="/indexPage">
-                        <Icon type="solution" />
-                        <span>Index</span>
-                    </Link>
-                </Menu.Item>
+              )
+            }
+          })}
         </Menu>
       </Sider>
     )

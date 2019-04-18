@@ -6,7 +6,6 @@ import { checkCookie } from './utils/cookieutils'
 function getRouter(HomeView,props,commonProps){
   // 这里可以判断用户是否处于登录状态，如果不是登录状态，直接返回到登录界面
   let isLogin = checkCookie("TOKEN");
-  console.log(isLogin)
   if(isLogin){
     return <HomeView {...props} {...commonProps}></HomeView>
   }else{

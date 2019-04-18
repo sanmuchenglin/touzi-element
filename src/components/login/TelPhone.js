@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Icon, Input, Checkbox, Tabs, Row, Col } from 'antd'
+import { Button, Form, Icon, Input, Checkbox, Row, Col } from 'antd'
 import style from './login.less'
 
 const TelPhone = ({form, onSubmit}) => {

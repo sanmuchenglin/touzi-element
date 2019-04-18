@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'dva'
-import { Button, Form, Icon, Input, Checkbox, Tabs } from 'antd'
-import { UserName, TelPhone } from '../components/login'
+import { Form, Tabs } from 'antd'
 import style from './login.less'
 
 const Tabpane = Tabs.TabPane;
@@ -42,7 +41,6 @@ class Login extends Component {
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
     const {defaultKey, tabs} = this.props.login
     return (
       <div className={style['login-layout']}>

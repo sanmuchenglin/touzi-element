@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Icon, Input, Checkbox, Tabs } from 'antd'
+import { Button, Form, Icon, Input, Checkbox } from 'antd'
 import style from './login.less'
 
 const UserName = ({form, onSubmit}) => {

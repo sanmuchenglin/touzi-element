@@ -7,7 +7,7 @@ import style from './home.less'
 
 @connect(
   ({home}) => ({
-    collapsed: home.collapsed
+    home
   })
 )
 class HomeContent extends Component {
@@ -17,18 +17,23 @@ class HomeContent extends Component {
     })
   }
   render() {
-    const { location, children } = this.props
+    console.log(this.props)
+    const { location, children, home } = this.props
+    const { height, collapsed } = home
+    const { Content } = Layout
     return (
       <Layout>
-          <LeftList></LeftList>
-          <Layout>
+          <LeftList />
+          <Layout style={{height: height}}>
             <BreadCread pathName={location.pathname}>
               <span onClick={this.toggleCollapsed} className={style['trigger']}>
-                <Icon type={this.props.collapsed? "menu-unfold":"menu-fold"} style={{fontSize: 18}}/>
+                <Icon type={collapsed? "menu-unfold":"menu-fold"} style={{fontSize: 18}}/>
               </span>
             </BreadCread>
             <Layout> 
-              {children}
+              <Content style={{overflow: 'auto'}}>
+                {children}
+              </Content>
             </Layout> 
           </Layout>
       </Layout>

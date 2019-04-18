@@ -8,7 +8,7 @@ export default {
   namespace: 'login',
 
   state: {
-    defaultKey: '2',
+    defaultKey: '1',
     tabs: [
       {key: '1',
        tabName: '账户密码登录' ,
